@@ -89,10 +89,10 @@
                                     <a class="nav-link dropdown-toggle" href="#" id="moreEventDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                       More Event
                                     </a>
-                                    <ul class="dropdown-menu" aria-labelledby="moreEventDropdown">
-                                      <li><a class="dropdown-item" href="./Florida.html">Florida Event</a></li>
-                                      <li><a class="dropdown-item" href="./Virginia.html">Virginia Event</a></li>
-                                      <li><a class="dropdown-item" href="./Lasvegas.html">Las Vegas Event</a></li>
+                                    <ul class="dropdown-menu" aria-labelledby="moreEventDropdown" style="text-align: center;">
+                                      <li><a class="dropdown-item" href="./Florida.html">Florida</a></li>
+                                      <li><a class="dropdown-item" href="./Virginia.html">Virginia</a></li>
+                                      <li><a class="dropdown-item" href="./Lasvegas.html">Las Vegas</a></li>
                                     </ul>
                                   </li>
                                 </ul>
@@ -110,50 +110,60 @@
                     <div class="col-lg-10">
                         <div data-countdown="2023/06/27"></div>
                         <div class="navbar-btn d-none d-sm-inline-block" style="margin-left: 40%; padding-top: 50px;"> <!-- Added 'text-center' class -->
-                            <a class="main-btn" href="https://eventsandexhibitions.us/">Register now</a>
+                            <a class="main-btn" href="">Register now</a>
                         </div>
                     </div> <!-- header content -->
                 </div>
             </div>
         </div> <!-- header content -->
-
-
-        
+          
         <script>
             document.addEventListener('DOMContentLoaded', function() {
                 var getTicketButton = document.querySelector('.main-btn');
                 var modal = document.getElementById('myModal');
                 var span = document.getElementsByClassName('close')[0];
                 var emailForm = document.getElementById('emailForm');
-                var nameInput = document.getElementById('nameInput');
-                var lastNameInput = document.getElementById('lastNameInput');
-                var emailInput = document.getElementById('emailInput');
-        
+                var nameInput = document.getElementById('name');
+                var lastNameInput = document.getElementById('lastName');
+                var emailInput = document.getElementById('email');
+
                 getTicketButton.addEventListener('click', function(event) {
                     event.preventDefault();
                     modal.style.display = 'block';
                 });
-        
+
                 span.addEventListener('click', function() {
                     modal.style.display = 'none';
                 });
-        
+
                 emailForm.addEventListener('submit', function(event) {
-                    event.preventDefault();
-                    var name = nameInput.value;
-                    var lastName = lastNameInput.value;
-                    var email = emailInput.value;
-                    // Handle the form submission here
-                    console.log(name, lastName, email); // Replace this with your desired action or remove this line
-                    modal.style.display = 'none';
-                });
+                event.preventDefault();
+                var name = nameInput.value;
+                var lastName = lastNameInput.value;
+                var email = emailInput.value;
+                
+                var xhr = new XMLHttpRequest();
+                xhr.open('POST', './submit_form.php'); // Replace with the URL of your PHP file
+                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                xhr.onload = function() {
+                    if (xhr.status === 200) {
+                        // Redirect the user to the specified website
+                        window.location.href = 'https://eventsandexhibitions.us';
+                    } else {
+                        console.log('Error:', xhr.status);
+                    }
+                };
+                xhr.send('name=' + encodeURIComponent(name) + '&lastName=' + encodeURIComponent(lastName) + '&email=' + encodeURIComponent(email));
+                
+                modal.style.display = 'none';
             });
+        });
         </script>
-        
-  
+
+
 
         <!-- Pop up modal -->
-        <div id="myModal" class="modal">
+        <div id="myModal" class="modal" style="margin-top: 50px;">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -162,21 +172,11 @@
                     </div>
                     <div class="modal-body">
                         <p class="modal-description">Stay tuned to our latest update and get a FREE access to our speakers' presentation</p>
-                        <form id="emailForm" method="POST" action="/submit_form.php">
-                            <div class="form-group">
-                                <label for="nameInput">Name:</label>
-                                <input type="text" class="form-control" id="nameInput" placeholder="Your name" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="lastNameInput">Last Name:</label>
-                                <input type="text" class="form-control" id="lastNameInput" placeholder="Your last name" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="emailInput">Email:</label>
-                                <input type="email" class="form-control" id="emailInput" placeholder="Your email address" required>
-                            </div>
-                            <button type="submit" class="btn btn-primary btn-block">Submit</button>
-                        </form>
+                        <!-- Update the form element with the correct IDs -->
+                       <form action="https://script.google.com/macros/s/AKfycbwMSUqpQu8YOoXCMWRqRiUtX2VM5vgmqurvxBWaXrfgWL-ICxFUQaFw486oR3aw9ZjS/exec" method="POST">
+                        <input type="email" name="email" placeholder="Enter your email" required>
+                        <input type="submit" value="Subscribe" class="subscribe-button" style="background-color: #800000; border: none; color: white; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; cursor: pointer; border-radius: 4px;">
+                    </form>
                     </div>
                 </div>
             </div>
@@ -254,7 +254,7 @@
                             <i class="lni-briefcase"></i>
                         </div>
                         <div class="counter-content">
-                            <span class="count counter">4</span>
+                            <span class="count counter">3</span>
                             <p class="text">Partner</p>
                         </div>
                     </div>
