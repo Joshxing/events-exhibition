@@ -6,12 +6,19 @@
     1. COMMON css 
 ===========================*/
 @import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800");
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap');
+html{
+  overflow: hidden;
+}
+
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-weight: normal;
   font-style: normal;
   color: #777777;
-  overflow-x: hidden; }
+  overflow-x: hidden;
+  overflow: hidden;
+ }
 
 * {
   margin: 0;
@@ -208,7 +215,7 @@ p {
       height: 100%;
       border-style: solid;
       /* Spinner Color */
-      border-color: #800000 #800000 #e6e6e6;
+      border-color: #000000 #000000 #e6e6e6;
       border-radius: 50%;
       border-width: 6px; }
     .preloader .loader .ytp-spinner-left .ytp-spinner-circle {
@@ -428,9 +435,7 @@ p {
 /*===========================
     2.HEADER css 
 ===========================*/
-.header-area {
-  padding-left: 15px;
-  padding-right: 15px; }
+
   @media (max-width: 767px) {
     .header-area {
       padding: 0; } }
@@ -453,7 +458,6 @@ p {
     content: '';
     width: 100%;
     height: 100%;
-    background: linear-gradient(to right, #050757 0%, #050757 100%);
     top: 0;
     left: 0;
     z-index: -1;
@@ -576,8 +580,6 @@ p {
 /*===== Header =====*/
 .header-content-area {
   height: 750px;
-  border-bottom-left-radius: 30px;
-  border-bottom-right-radius: 30px;
   position: relative;
   overflow: hidden; }
   @media only screen and (min-width: 1400px) {
@@ -589,20 +591,48 @@ p {
   @media only screen and (min-width: 576px) and (max-width: 767px) {
     .header-content-area {
       height: 550px; } }
-  .header-content-area::before {
+  .header-content-area::after {
     position: absolute;
-    content: '';
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: -webkit-linear-gradient(left, rgba(16, 43, 175, 0.2) 0%, rgba(22, 100, 255, 0.2) 100%);
-    background: -o-linear-gradient(left, rgba(16, 43, 175, 0.2) 0%, rgba(22, 100, 255, 0.2) 100%);
-    background: linear-gradient(to right, rgba(16, 43, 175, 0.2) 0%, rgba(22, 100, 255, 0.2) 100%); }
+	content: '';
+	background: rgba(0, 0, 0, 0.45);
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 1;}
+
+
+
+
+.header-content-area div[data-countdown] {
+            position: relative;
+            z-index: 2;
+            color: #fff; /* Text color */
+            font-size: 2rem;
+            text-align: center;
+            padding: 20px;
+            margin-left: -120%;
+            font: 100;
+}
+
+
+.header-content-area .main-btn {
+  position: relative;
+            z-index: 1;
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #000000;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+}
 
 .header-countdown .single-count-content {
   padding: 0 45px;
-  text-align: center; }
+  text-align: center;
+
+ }
   @media (max-width: 767px) {
     .header-countdown .single-count-content {
       padding: 0 10px; } }
@@ -611,7 +641,7 @@ p {
       padding: 0 15px; } }
   .header-countdown .single-count-content .count {
     font-size: 72px;
-    font-weight: 600;
+    font-weight: 300;
     line-height: 60px; }
     @media (max-width: 767px) {
       .header-countdown .single-count-content .count {
@@ -623,7 +653,7 @@ p {
         line-height: 40px; } }
   .header-countdown .single-count-content .text {
     font-size: 20px;
-    font-weight: 600;
+    font-weight: 300;
     margin-top: 10px; }
     @media (max-width: 767px) {
       .header-countdown .single-count-content .text {
@@ -635,16 +665,16 @@ p {
         margin-top: 0; } }
   .header-countdown .single-count-content.count-color-1 .count,
   .header-countdown .single-count-content.count-color-1 .text {
-    color: #ee163a; }
+    color: #ffffff; }
   .header-countdown .single-count-content.count-color-2 .count,
   .header-countdown .single-count-content.count-color-2 .text {
-    color: #ffc107; }
+    color: #ffffff; }
   .header-countdown .single-count-content.count-color-3 .count,
   .header-countdown .single-count-content.count-color-3 .text {
-    color: #03a9f4; }
+    color: #ffffff; }
   .header-countdown .single-count-content.count-color-4 .count,
   .header-countdown .single-count-content.count-color-4 .text {
-    color: #8bc34a; }
+    color: #ffffff; }
 
 .header-content {
   margin-top: 60px; }
@@ -1516,15 +1546,13 @@ p {
         -moz-box-shadow: 0px 5px 29px 0px rgba(0, 0, 0, 0.25);
         box-shadow: 0px 5px 29px 0px rgba(0, 0, 0, 0.25); }
       .btn-primary {
-        background: -webkit-linear-gradient(left, #800000 0%, #800000 50%, #800000 100%);
-        background: -o-linear-gradient(left, #800000 0%, #800000 50%, #800000 100%);
-        background: linear-gradient(to right, #800000 0%, #800000 50%, #800000 100%);
+        background: -webkit-linear-gradient(left, #000000 0%, #000000 50%, #000000 100%);
+        background: -o-linear-gradient(left, #000000 0%, #000000 50%, #000000 100%);
+        background: linear-gradient(to right, #000000 0%, #000000 50%, #000000 100%);
         background-size: 200% auto;
         color: #fff;
         background-position: left center;
-        -webkit-box-shadow: 0px 8px 16px 0px rgba(72, 127, 255, 0.23);
-        -moz-box-shadow: 0px 8px 16px 0px rgba(72, 127, 255, 0.23);
-        box-shadow: 0px 8px 16px 0px rgba(72, 127, 255, 0.23); }
+    }
         .btn-primary:hover {
           background-position: right center;
           color: #fff; }
@@ -1616,6 +1644,37 @@ button[type="submit"] {
 
 button[type="submit"]:hover {
   background-color: #45a049;
+}
+
+
+
+
+
+
+.wrapper {
+  position: relative;
+  flex-grow: 1;
+  margin: auto;
+  max-width: 1200px;
+  max-height: 1200px;
+  
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-gap: 2vmin;
+  justify-items: center;
+  align-items: center;
+}
+
+img {
+  z-index: 1;
+  grid-column: span 2;
+  max-width: 500%;
+  margin-bottom: -52%;
+  transform: scale(1);
+  transition: all .25s;
+  margin-left: 370%;
+
 }
 
 
