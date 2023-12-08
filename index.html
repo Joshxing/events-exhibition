@@ -133,12 +133,15 @@
                     <div class="col-lg-10">
                         <div data-countdown="2024/11/13"></div>
                         <div class="navbar-btn text-center" style="padding-top: 50px;">
-                            <a class="main-btn" href="">Register now</a>
+                            <a class="main-btn" href="">Register Now! Online</a>
+                             <button onclick="downloadPDF()" class="main-btn" style="margin-left: 20px;">Offline Registration Form</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
+        <a id="pdfLink" style="display: none;" href="Delegate Registration Form.pdf" download="Delegate-Registration-Form.pdf"></a>
         
          <!-- header content -->
 
@@ -636,6 +639,13 @@
           // Redirect to the specified website after form submission
           window.location.href = 'https://eventsandexhibitions.us/become-a-sponsor/';
         });
+
+
+         // Function to trigger PDF download
+    function downloadPDF() {
+        // Simulate a click on the hidden link to trigger the download
+        document.getElementById('pdfLink').click();
+    }
       </script>
 
     
