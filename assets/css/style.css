@@ -14,7 +14,7 @@ body {
   overflow-x: hidden; }
 
 html {
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 * {
