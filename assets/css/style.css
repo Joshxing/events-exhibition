@@ -13,6 +13,10 @@ body {
   color: #ffffff;
   overflow-x: hidden; }
 
+html {
+  overflow: hidden;
+}
+
 * {
   margin: 0;
   padding: 0;
